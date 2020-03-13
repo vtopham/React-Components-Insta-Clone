@@ -25,7 +25,7 @@ const PostsPage = () => {
           <img className = "post-image" src = {postData.imageUrl} alt = "post image"/> 
         </div>
         <div className = "like-or-comment">
-            {/* insert like/comment buttons here */}
+          {/* <img src = "../src/assets/heart.svg"/> */}
         </div>
         <div className = "like-section">
           <h2 className = "like-number">{postData.likes} likes</h2>

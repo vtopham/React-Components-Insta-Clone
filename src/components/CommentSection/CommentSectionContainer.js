@@ -17,7 +17,6 @@ const CommentSection = props => {
   return (
     
     <div>
-     {/* <Comment comment = {postData.comments[0]}/> */}
      {postComments}
      
       <CommentInput />
