@@ -3,6 +3,8 @@
 import React, {useState} from "react";
 import Post from "./Post";
 import "./Posts.css";
+import CommentSectionContainer from "../CommentSection/CommentSectionContainer.js";
+
 // import data 
 // import dummyData from "..../dummy-data.js";
 
@@ -35,22 +37,23 @@ const PostsPage = () => {
   function AddPost (props) {
     const {postData} = props;
   
-    return (
+    return ( //returns a post
 
-      <div className = "posts-container-wrapper">
-        <div className = "post-header">
-          <img src = {postData.thumbnailUrl} alt = "account thumbnail"></img>
+      <div className = "posts-container-wrapper post-border">
+        <div className = "post-header"> 
+          <img className = "post-thumb-wrapper post-thumb" src = {postData.thumbnailUrl} alt = "account thumbnail"/>
           <h2 className = "post-header h2">{postData.username}</h2>
         </div>
         <div className = "post-image-wrapper">
-          <img className = "post-image" src = {postData.imageURL}/> 
+          <img className = "post-image" src = {postData.imageUrl} alt = "post image"/> 
         </div>
         <div className = "like-or-comment">
             {/* insert like/comment buttons here */}
         </div>
-        <h2>{postData.likes} likes</h2>
-          
-        {/* ADD COMMENTS HERE */}
+        <div className = "like-section">
+          <h2 className = "like-number">{postData.likes} likes</h2>
+        </div>
+        <CommentSectionContainer postData = {postData} />
       </div>
       
       

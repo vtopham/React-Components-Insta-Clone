@@ -26,10 +26,7 @@
   width: 100%;
 }
 
-.post-header {
-  display: flex;
-}
-
+/* icons */
 .post-thumb-wrapper {
   height: 50px;
   width: 50px;
@@ -39,6 +36,8 @@
   margin: 5px;
   border-radius: 50%;
 }
+
+
 .like-section {
   display: flex;
   justify-content: flex-start;
