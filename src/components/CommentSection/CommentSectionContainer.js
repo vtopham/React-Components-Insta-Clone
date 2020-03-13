@@ -9,10 +9,16 @@ const CommentSection = props => {
   const { postData } = props;
 
   console.log(postData);
+
+  const postComments = postData.comments.map((item) => {
+    return <Comment comment = {item}/>
+  });
+
   return (
     
     <div>
-     <Comment comment = {postData.comments[0]}/>
+     {/* <Comment comment = {postData.comments[0]}/> */}
+     {postComments}
      
       <CommentInput />
     </div>
