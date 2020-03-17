@@ -16,7 +16,8 @@ const PostsPage = () => {
 
   function AddPost (props) { //this puppy adds a post
     const {postData} = props; 
-    const [postLikes, setPostLikes] = useState(400);
+    console.log(postData);
+    const [postLikes, setPostLikes] = useState(postData.likes);
 
     return ( //returns a post
 

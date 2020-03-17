@@ -7,7 +7,7 @@ const LikeSection = props => {
 
   const {postLikes, setPostLikes} = props;
 
-  function addALike() {
+  function addALike(e) {
     setPostLikes(postLikes + 1);
   }
   return (
