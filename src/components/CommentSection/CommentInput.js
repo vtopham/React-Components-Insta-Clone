@@ -2,15 +2,21 @@
 import React from 'react';
 
 const CommentInput = props => {
+  const {addComment, doNothing} = props;
   return (
-    <form className="comment-form" onSubmit={props.submitComment}>
+    <>
+    <div className="comment-form" onSubmit={doNothing}>
       <input
         type="text"
-        value={props.comment}
+        id="test-test"
+        // value={props.comment}
         placeholder="Add comment... "
-        onChange={props.changeComment}
+        onKeyDown={addComment}
+        onSubmit={doNothing}
       />
-    </form>
+    </div>
+    {/* <button onClick={addComment}>Submit Comment</button> */}
+    </>
   );
 };
 

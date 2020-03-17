@@ -17,6 +17,7 @@ const PostsPage = () => {
   function AddPost (props) { //this puppy adds a post
     const {postData} = props; 
     const [postLikes, setPostLikes] = useState(400);
+    const [postComments, setPostComments] = useState(postData.comments);
 
     return ( //returns a post
 
@@ -28,11 +29,9 @@ const PostsPage = () => {
         <div className = "post-image-wrapper">
           <img className = "post-image" src = {postData.imageUrl} alt = "post image"/> 
         </div>
-        {/* <div className = "like-or-comment">
-           <img src = "../src/assets/heart.svg"/> 
-        </div> */}
+        
         <LikesSection postLikes = {postLikes} setPostLikes = {setPostLikes}/>
-        <CommentSectionContainer postData = {postData} /> 
+        <CommentSectionContainer postComments = {postComments} setPostComments = {setPostComments} /> 
       </div>
       
     );
