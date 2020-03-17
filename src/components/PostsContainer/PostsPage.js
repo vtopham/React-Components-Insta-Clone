@@ -11,6 +11,8 @@ import dummyData from "../../dummy-data.js";
 const PostsPage = () => {
   // set up state for your data
 
+  const [myData, setMyData] = useState(dummyData);
+
   function AddPost (props) { //this puppy adds a post
     const {postData} = props; 
 
@@ -36,7 +38,7 @@ const PostsPage = () => {
     );
   }
 
-  const postsList = dummyData.map((item) => {
+  const postsList = myData.map((item) => {
     return <AddPost postData = {item}/>
   })
 
