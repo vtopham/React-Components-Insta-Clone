@@ -25,7 +25,6 @@ const Post = props => {
           src={props.post.imageUrl}
         />
       </div>
-      <LikeSection />
       <CommentSection
         postId={props.post.imageUrl}
         comments={props.post.comments}

@@ -4,22 +4,29 @@
 import React from "react";
 
 const LikeSection = props => {
+
+  const {postLikes, setPostLikes} = props;
+
+  function addALike() {
+    setPostLikes(postLikes + 1);
+  }
   return (
     <div>
     <div
       className="like-section"
-      key="likes-icons-container"
+      // key="likes-icons-container"
     >
       <div className="like-section-wrapper">
-        <i className="far fa-heart" />
+        <i className="fa fa-heart" onClick={addALike}/>
+        
       </div>
       <div className="like-section-wrapper">
-        <i className="far fa-comment" />
+        <i className="fa fa-comment" />
       </div>
     </div>
     <p className="like-number">
       
-      likes</p>
+      {postLikes} likes</p>
 </div>
   )
 };

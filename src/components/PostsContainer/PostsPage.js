@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import Post from "./Post";
 import "./Posts.css";
 import CommentSectionContainer from "../CommentSection/CommentSectionContainer.js";
-
+import LikesSection from "./LikeSection";
 // import data 
 import dummyData from "../../dummy-data.js";
 
@@ -12,9 +12,11 @@ const PostsPage = () => {
   // set up state for your data
 
   const [myData, setMyData] = useState(dummyData);
+  
 
   function AddPost (props) { //this puppy adds a post
     const {postData} = props; 
+    const [postLikes, setPostLikes] = useState(400);
 
     return ( //returns a post
 
@@ -26,12 +28,10 @@ const PostsPage = () => {
         <div className = "post-image-wrapper">
           <img className = "post-image" src = {postData.imageUrl} alt = "post image"/> 
         </div>
-        <div className = "like-or-comment">
-          {/* <img src = "../src/assets/heart.svg"/> */}
-        </div>
-        <div className = "like-section">
-          <h2 className = "like-number">{postData.likes} likes</h2>
-        </div>
+        {/* <div className = "like-or-comment">
+           <img src = "../src/assets/heart.svg"/> 
+        </div> */}
+        <LikesSection postLikes = {postLikes} setPostLikes = {setPostLikes}/>
         <CommentSectionContainer postData = {postData} /> 
       </div>
       
