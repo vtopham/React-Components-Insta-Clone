@@ -50,8 +50,9 @@
 }
 .like-number {
   width: 100px;
-  margin: 15px 0px;
+  margin: 15px 10px;
   font-size: 16px;
+  text-align: left;
 }
 
 .far, .fab {

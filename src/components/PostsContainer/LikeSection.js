@@ -7,14 +7,14 @@ const LikeSection = props => {
 
   const {postLikes, setPostLikes} = props;
 
-  const [isLiked, setIsLiked] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
 
   function addALike(e) {
-    if (isLiked === 0) {
-      setIsLiked(1);
+    if (isLiked === false) {
+      setIsLiked(true);
       setPostLikes(postLikes + 1);
     } else {
-      setIsLiked(0);
+      setIsLiked(false);
       setPostLikes(postLikes - 1);
     }
     

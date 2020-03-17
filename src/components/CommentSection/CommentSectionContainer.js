@@ -8,7 +8,6 @@ const CommentSection = props => {
   // Add state for the comments
   const { postData } = props;
 
-  console.log(postData);
 
   const postComments = postData.comments.map((item) => {
     return <Comment comment = {item}/>
