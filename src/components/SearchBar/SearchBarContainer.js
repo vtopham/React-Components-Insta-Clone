@@ -10,11 +10,14 @@ const SearchBar = (props) => {
     if (e.keyCode === 13) {
       e.preventDefault();
       const filterCriteria = e.target.value;
-      console.log(myData);
-      const filteredArray = myData.filter((e) => {
+      if (filterCriteria === "") {
+        setMyData(allData);
+      } else {
+      const filteredArray = allData.filter((e) => {
         return e.username === filterCriteria;
       })
-      setMyData(filteredArray);
+        setMyData(filteredArray);
+      }
     }
   }
 
