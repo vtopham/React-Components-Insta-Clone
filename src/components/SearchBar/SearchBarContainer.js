@@ -2,14 +2,29 @@
 import React from "react";
 import "./SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+
+  const {allData, setAllData, myData, setMyData} = props;
+  
+  function filterResults (e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      const filterCriteria = e.target.value;
+      console.log(myData);
+      const filteredArray = myData.filter((e) => {
+        return e.username === filterCriteria;
+      })
+      setMyData(filteredArray);
+    }
+  }
+
   return (
     <div className="search-bar-wrapper">
       <div className="image-wrapper">
         <i className="fab fa-instagram" />
         <img className = "logo-image" src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png" alt= "instagram logo"/>
       </div>
-      <form className="search-form">
+      <form className="search-form" onKeyDown={filterResults}>
         <input
           type="text"
           placeholder="Search"

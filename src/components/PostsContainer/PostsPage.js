@@ -8,10 +8,10 @@ import LikesSection from "./LikeSection";
 // import data 
 import dummyData from "../../dummy-data.js";
 
-const PostsPage = () => {
+const PostsPage = (props) => {
   // set up state for your data
 
-  const [myData, setMyData] = useState(dummyData);
+  const {myData, setMyData} = props;
   
 
   function AddPost (props) { //this puppy adds a post
@@ -30,9 +30,6 @@ const PostsPage = () => {
         <div className = "post-image-wrapper">
           <img className = "post-image" src = {postData.imageUrl} alt = "post image"/> 
         </div>
-        {/* <div className = "like-or-comment">
-           <img src = "../src/assets/heart.svg"/> 
-        </div> */}
         <LikesSection postLikes = {postLikes} setPostLikes = {setPostLikes}/>
         <CommentSectionContainer postComments = {postComments} setPostComments = {setPostComments} /> 
       </div>
@@ -40,10 +37,11 @@ const PostsPage = () => {
     );
   }
 
-  const postsList = myData.map((item) => {
+  let postsList = myData.map((item) => {
     return <AddPost postData = {item}/>
   })
 
+  
 
   return (
     <div className="posts-container-wrapper">
