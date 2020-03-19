@@ -1,15 +1,51 @@
 //Complete the necessary code in this file
 // import useState
-import React from "react";
+import React, {useState} from "react";
 import Post from "./Post";
 import "./Posts.css";
+import CommentSectionContainer from "../CommentSection/CommentSectionContainer.js";
+import LikesSection from "./LikeSection";
 // import data 
+import dummyData from "../../dummy-data.js";
 
-const PostsPage = () => {
+const PostsPage = (props) => {
   // set up state for your data
+
+  const {myData, setMyData} = props;
+  
+
+  function AddPost (props) { //this puppy adds a post
+    const {postData} = props; 
+    // console.log(postData);
+    const [postComments, setPostComments] = useState(postData.comments);
+    const [postLikes, setPostLikes] = useState(postData.likes);
+
+    return ( //returns a post
+
+      <div className = "posts-container-wrapper post-border">
+        <div className = "post-header"> 
+          <img className = "post-thumb-wrapper post-thumb" src = {postData.thumbnailUrl} alt = "account thumbnail"/>
+          <h2 className = "post-header h2">{postData.username}</h2>
+        </div>
+        <div className = "post-image-wrapper">
+          <img className = "post-image" src = {postData.imageUrl} alt = "post image"/> 
+        </div>
+        <LikesSection postLikes = {postLikes} setPostLikes = {setPostLikes}/>
+        <CommentSectionContainer postComments = {postComments} setPostComments = {setPostComments} /> 
+      </div>
+      
+    );
+  }
+
+  let postsList = myData.map((item) => {
+    return <AddPost postData = {item}/>
+  })
+
+  
+
   return (
     <div className="posts-container-wrapper">
-      {/* map through data here to return a Post and pass data as props to Post */}
+      {postsList}
     </div>
   );
 };
